@@ -31,7 +31,18 @@ const LoginPage = ({ onClose }) => {
       }
     });
   };
-
+  Template.login.events({
+    'click #login-trustid': function(event) {
+      Meteor.loginWithtrustid({}, function(err) {
+        if (err) {
+          console.error("trustid login failed:", err);
+        } else {
+          console.log("trustid login successful!");
+        }
+      });
+    }
+  });
+  
   const handleFacebookLogin = () => {
     Meteor.loginWithFacebook({}, (err) => {
       if (err) {
@@ -66,6 +77,7 @@ const LoginPage = ({ onClose }) => {
       <hr />
       <button onClick={handleGoogleLogin}>Đăng nhập bằng Google</button>
       <button onClick={handleFacebookLogin}>Đăng nhập bằng Facebook</button>
+      <button id="login-trustid"> Đăng nhập bằng trustid</button>
       <button onClick={onClose}>Đóng</button>
     </div>
   );

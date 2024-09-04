@@ -47,6 +47,30 @@ Meteor.startup(async () => {
     },
     { upsert: true }
   );
+  await ServiceConfiguration.configurations.updateAsync(
+    { service: 'facebook' },
+    {
+      $set: {
+        appId: '',
+        secret: '',
+        loginStyle: 'popup',
+      },
+    },
+    { upsert: true }
+  );
 
 
+});
+Meteor.startup(() => {
+  // Cấu hình trustid OAuth
+  ServiceConfiguration.configurations.upsert(
+    { service: 'trustid' },
+    {
+      $set: {
+        clientId: '<Your trustid Client ID>',
+        secret: '<Your trustid Client Secret>',
+        loginStyle: 'popup',
+      },
+    }
+  );
 });
