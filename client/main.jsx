@@ -45,7 +45,7 @@ const LoginPage = ({ onClose }) => {
   };
 
   const handleTrustIDLogin = () => {
-    window.location.href = '/login-trustid'
+    window.location.href = '/login-trustid';
   };
 
   return (
