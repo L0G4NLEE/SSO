@@ -55,6 +55,10 @@ const LoginPage = ({ onClose }) => {
     });
   };
 
+  const handleTrustIDLogin = () => {
+    window.location.href = '/login-trustid';
+  };
+
   return (
     <div style={{ border: '1px solid #ccc', padding: '20px', backgroundColor: '#f9f9f9' }}>
       <h1>Đăng nhập</h1>
@@ -77,7 +81,11 @@ const LoginPage = ({ onClose }) => {
       <hr />
       <button onClick={handleGoogleLogin}>Đăng nhập bằng Google</button>
       <button onClick={handleFacebookLogin}>Đăng nhập bằng Facebook</button>
+<<<<<<< HEAD
       <button id="login-trustid"> Đăng nhập bằng trustid</button>
+=======
+      <button onClick={handleTrustIDLogin}>Đăng nhập bằng TrustID</button>
+>>>>>>> db1e08ef4f777eaae3265aaa6c9fba4d9bd3ec1a
       <button onClick={onClose}>Đóng</button>
     </div>
   );
